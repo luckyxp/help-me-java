@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xp.order.dao.OrderDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.xp.order.entity.OrderEntity" id="orderMap">
+        <result property="id" column="id"/>
+        <result property="time" column="time"/>
+        <result property="demandId" column="demand_id"/>
+        <result property="subId" column="sub_id"/>
+        <result property="orderStatus" column="order_status"/>
+    </resultMap>
+
+
+</mapper>

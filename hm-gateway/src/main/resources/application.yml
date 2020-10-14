@@ -1,0 +1,46 @@
+server:
+  port: 88
+
+spring:
+  application:
+    name: hm-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: wxp520.top:8848
+    gateway:
+      routes:
+        - id: auth_route
+          uri: lb://hm-auth-server
+          predicates:
+            - Path=/api/auth/**
+          filters:
+            - RewritePath=/api/auth/(?<segment>.*),/$\{segment}
+
+        - id: demand_route
+          uri: lb://hm-demand
+          predicates:
+            - Path=/api/demand/**
+          filters:
+            - RewritePath=/api/(?<segment>.*),/$\{segment}
+
+        - id: order_route
+          uri: lb://hm-order
+          predicates:
+            - Path=/api/order/**
+          filters:
+            - RewritePath=/api/(?<segment>.*),/$\{segment}
+
+        - id: user_route
+          uri: lb://hm-user
+          predicates:
+            - Path=/api/user/**
+          filters:
+            - RewritePath=/api/(?<segment>.*),/$\{segment}
+
+        - id: admin_route
+          uri: lb://renren-fast
+          predicates:
+            - Path=/api/**
+          filters:
+            - RewritePath=/api/(?<segment>.*),/renren-fast/$\{segment}

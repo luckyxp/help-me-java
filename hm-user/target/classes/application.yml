@@ -1,0 +1,29 @@
+server:
+  port: 8000
+
+spring:
+  application:
+    name: hm-user
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+  cloud:
+    nacos:
+      discovery:
+        server-addr: wxp520.top:8848
+
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: xupan200820@
+    url: jdbc:mysql://wxp520.top:3306/hm_user?useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai #时区问题 不指定可能会报错
+    type: com.alibaba.druid.pool.DruidDataSource
+mybatis-plus:
+  mapper-locations: classpath:/mapper/**/*.xml
+  global-config:
+    db-config:
+      id-type: auto
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+logging:
+  level:
+    com.xp.*: debug

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xp.user.dao.UserDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.xp.user.entity.UserEntity" id="userMap">
+        <result property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="password" column="password"/>
+        <result property="fullName" column="full_name"/>
+        <result property="headImage" column="head_image"/>
+        <result property="phone" column="phone"/>
+        <result property="moeny" column="moeny"/>
+        <result property="authorities" column="authorities"/>
+    </resultMap>
+
+
+</mapper>
